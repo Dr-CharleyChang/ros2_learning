@@ -1,0 +1,12 @@
+name: Check_Code
+on: [push]
+jobs:
+  test_bot:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Get_Code
+        uses: actions/checkout@v3
+      - name: Install_Gpp
+        run: sudo apt-get update && sudo apt-get install -y build-essential
+      - name: Compile_Test
+        run: g++ robot_test.cpp -o test_app
